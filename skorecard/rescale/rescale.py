@@ -131,7 +131,7 @@ class ScoreCardPoints(BaseEstimator, TransformerMixin):
             return modified_dict
         
         self.buckets = {k: fbm.get(k) for k in fbm.columns if k in self.features}
-        self.woes = {k: modify_woes_dict(f) for k in woe_dict.keys() if k in self.features}
+        self.woes = {k: modify_woes_dict(k) for k in woe_dict.keys() if k in self.features}
 
     def _calculate_scorecard_points(self):
         # Put together the features in a list of tables, containing all the buckets.
